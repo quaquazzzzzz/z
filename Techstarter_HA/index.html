@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+        }
+        header {
+            background: #50b3a2;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #bbb 1px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+        header li {
+            float: left;
+            display: block;
+            padding: 0 20px;
+            font-size: 16px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        #task-input {
+            margin-bottom: 20px;
+        }
+        ul {
+            padding: 0;
+        }
+        li {
+            list-style: none;
+            background: #fff;
+            margin-bottom: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        li.done {
+            text-decoration: line-through;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">ToDo</span> App</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="task-input">
+            <input type="text" id="task-text" placeholder="Neue Aufgabe eingeben...">
+            <button onclick="addTask()">Aufgabe hinzufügen</button>
+        </div>
+        <ul id="task-list">
+            <!-- Hier werden die Aufgaben eingefügt -->
+        </ul>
+    </div>
+    
+    <script>
+        function addTask() {
+            const taskText = document.getElementById('task-text').value;
+            if (taskText === '') return;
+            const taskList = document.getElementById('task-list');
+            const task = document.createElement('li');
+            task.textContent = taskText;
+            task.addEventListener('click', () => {
+                task.classList.toggle('done');
+            });
+            taskList.appendChild(task);
+            document.getElementById('task-text').value = '';
+        }
+    </script>
+</body>
+</html>

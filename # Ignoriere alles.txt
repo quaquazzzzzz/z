@@ -1,0 +1,5 @@
+# Ignoriere alles
+*
+
+# Aber nicht den wetter-Ordner
+!wetter/

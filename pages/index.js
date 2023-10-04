@@ -6,7 +6,7 @@ export default function Home() {
     const [error, setError] = useState(null);
 
     const handleWetterAbfrage = async () => {
-        const apiKey = '35bc9977a6f9322b125d01597e7d9d27'; //  OpenWeatherMap API-Schlüssel
+        const apiKey = 'API KEY'; //  OpenWeatherMap API-Schlüssel
 
         try {
             // API Anfrage
@@ -25,12 +25,12 @@ export default function Home() {
                 luftfeuchtigkeit: `${data.main.humidity}%`
             };
 
-            setWetter(verarbeiteteDaten);
+            setWetter(verarbeiteteDaten);A
             setError(null); // Fehler zurücksetzen
         } catch (err) {
             setError(err.message);
             setWetter(null); // Wetterdaten zurücksetzen
-        }
+        }A
     };
 
     return (
